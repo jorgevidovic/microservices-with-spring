@@ -17,6 +17,12 @@
     <name>microservices-with-spring</name>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>gateway-microservice</module>
+        <module>eureka-microservice</module>
+        <module>config-microservice</module>
+    </modules>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
