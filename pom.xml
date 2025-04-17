@@ -21,6 +21,7 @@
         <module>gateway-microservice</module>
         <module>eureka-microservice</module>
         <module>config-microservice</module>
+        <module>student-microservice</module>
     </modules>
 
     <properties>
