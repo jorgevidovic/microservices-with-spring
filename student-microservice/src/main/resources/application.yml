@@ -13,11 +13,14 @@ spring:
     hibernate:
       ddl-auto: create
     database: mysql
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+  config:
+    import: optional:configserver:http://${EUREKA_APP_HOST}:${EUREKA_APP_PORT}
 
 eureka:
   instance:
     hostname: localhost
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://${EUREKA_APP_HOST}:${EUREKA_SERVER_PORT}/eureka

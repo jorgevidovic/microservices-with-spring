@@ -22,6 +22,7 @@
         <module>eureka-microservice</module>
         <module>config-microservice</module>
         <module>student-microservice</module>
+        <module>course-microservice</module>
     </modules>
 
     <properties>
