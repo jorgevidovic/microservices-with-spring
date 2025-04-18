@@ -1,4 +1,4 @@
-package com.vsprojects.student.entities;
+package com.vsprojects.student.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
