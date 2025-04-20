@@ -27,4 +27,9 @@ public class CourseController {
     public ResponseEntity<Course> saveStudent(@Valid @RequestBody Course course) {
         return ResponseEntity.ok(courseService.save(course));
     }
+
+    @GetMapping("/students/{id}")
+    public ResponseEntity<?> findStudentsByCourse(@PathVariable Long id) {
+        return ResponseEntity.ok(courseService.findStudentsByCourse(id));
+    }
 }
