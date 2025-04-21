@@ -2,6 +2,7 @@ package com.vsprojects.student.service;
 
 import com.vsprojects.student.entity.Student;
 import com.vsprojects.student.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentService{
 
+    @Autowired
     private StudentRepository studentRepository;
 
     @Override
@@ -22,8 +24,8 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public List<Student> findByIdCourse(Long idCourse) {
-        return studentRepository.findByIdCourse(idCourse);
+    public List<Student> findByCourseId(Long courseId) {
+        return studentRepository.findByCourseId(courseId);
     }
 
     @Override

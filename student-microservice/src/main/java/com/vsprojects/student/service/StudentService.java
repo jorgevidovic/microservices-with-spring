@@ -8,6 +8,6 @@ import java.util.Optional;
 public interface StudentService {
     List<Student> findAll();
     Student findById(Long id);
-    List<Student> findByIdCourse(Long idCourse);
+    List<Student> findByCourseId(Long courseId);
     Student save(Student student);
 }

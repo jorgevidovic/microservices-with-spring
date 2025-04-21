@@ -10,10 +10,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class CourseServiceImpl implements CourseService {
 
+    @Autowired
     private CourseRepository courseRepository;
+    @Autowired
     private StudentClient studentClient;
 
 
@@ -33,12 +36,12 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public StudentsByCourseResponse findStudentsByCourse(Long id) {
-        Course course = courseRepository.findById(id).orElseThrow();
-        List<StudentDTO> students = studentClient.findByIdCourse(id);
+    public StudentsByCourseResponse findStudentsByCourseId(Long courseId) {
+        Course course = courseRepository.findById(courseId).orElseThrow();
+        List<StudentDTO> students = studentClient.findByIdCourse(courseId);
 
         return StudentsByCourseResponse.builder()
-                .course(course.getName())
+                .name(course.getName())
                 .description(course.getDescription())
                 .students(students)
                 .build();

@@ -12,5 +12,5 @@ public interface CourseService {
 
     Course save(Course course);
 
-    StudentsByCourseResponse findStudentsByCourse(Long id);
+    StudentsByCourseResponse findStudentsByCourseId(Long courseId);
 }

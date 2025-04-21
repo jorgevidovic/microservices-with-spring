@@ -3,6 +3,7 @@ package com.vsprojects.student.controller;
 import com.vsprojects.student.entity.Student;
 import com.vsprojects.student.service.StudentService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @RequestMapping("/api/students")
 public class StudentController {
 
+    @Autowired
     private StudentService studentService;
 
     @GetMapping
@@ -24,9 +26,9 @@ public class StudentController {
         return ResponseEntity.ok(studentService.findById(id));
     }
 
-    @GetMapping ("/course/{idCourse}")
-    public ResponseEntity<List<Student>> findByIdCourse(@PathVariable Long idCourse){
-        return ResponseEntity.ok(studentService.findByIdCourse(idCourse));
+    @GetMapping ("/course/{courseId}")
+    public ResponseEntity<List<Student>> findByCourseId(@PathVariable Long courseId){
+        return ResponseEntity.ok(studentService.findByCourseId(courseId));
     }
 
     @PostMapping()

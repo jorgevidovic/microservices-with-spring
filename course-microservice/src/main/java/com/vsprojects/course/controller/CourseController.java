@@ -3,6 +3,7 @@ package com.vsprojects.course.controller;
 import com.vsprojects.course.entity.Course;
 import com.vsprojects.course.service.CourseService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/courses")
 public class CourseController {
+    @Autowired
     private CourseService courseService;
 
     @GetMapping
@@ -28,8 +30,8 @@ public class CourseController {
         return ResponseEntity.ok(courseService.save(course));
     }
 
-    @GetMapping("/students/{id}")
-    public ResponseEntity<?> findStudentsByCourse(@PathVariable Long id) {
-        return ResponseEntity.ok(courseService.findStudentsByCourse(id));
+    @GetMapping("/{courseId}/students")
+    public ResponseEntity<?> findStudentsByCourseId(@PathVariable Long courseId) {
+        return ResponseEntity.ok(courseService.findStudentsByCourseId(courseId));
     }
 }
