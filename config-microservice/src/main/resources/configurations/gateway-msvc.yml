@@ -1,0 +1,22 @@
+eureka:
+  client:
+    register-with-eureka: false
+server:
+  port: ${GATEWAY_APP_PORT}
+spring:
+  application:
+    name: gateway-msvc
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: students
+          uri: http://${STUDENT_APP_HOST}:${STUDENT_APP_PORT}
+          predicates:
+            - Path=/api/students/**
+        - id: courses
+          uri: http://${COURSE_APP_HOST}:${COURSE_APP_PORT}
+          predicates:
+            - Path=/api/courses/**

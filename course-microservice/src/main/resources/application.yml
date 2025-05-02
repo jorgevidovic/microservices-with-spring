@@ -1,26 +1,5 @@
-server:
-  port: ${COURSE_APP_PORT}
-
 spring:
   application:
     name: ${COURSE_APP_NAME}
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${COURSE_DB_HOST}:${COURSE_DB_PORT}/${COURSE_DB_NAME}
-    username: ${COURSE_DB_USER}
-    password: ${COURSE_DB_PASS}
-  jpa:
-    hibernate:
-      ddl-auto: create
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-
   config:
     import: optional:configserver:http://${EUREKA_APP_HOST}:${EUREKA_APP_PORT}
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    service-url:
-      defaultZone: http://${EUREKA_APP_HOST}:${EUREKA_SERVER_PORT}/eureka

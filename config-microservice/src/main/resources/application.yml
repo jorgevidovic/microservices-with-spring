@@ -1,1 +1,12 @@
-spring.application.name=config-microservice
+server:
+    port: ${EUREKA_APP_PORT}
+spring:
+  profiles:
+    active: native
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configurations
